@@ -6,7 +6,7 @@ file1=spark.sparkContext.textFile(r"C:\Users\DHINAKARAN\Desktop\New Text Documen
 print(file1.collect())
 sc=spark.sparkContext
 #map_function
-'''x_map=sc.parallelize([1,3,5,6,8,89,6,4,4])
+x_map=sc.parallelize([1,3,5,6,8,89,6,4,4])
 y_map=x_map.map(lambda x:(x,x**2))
 print(x_map.collect())
 print(y_map.collect())
@@ -21,7 +21,7 @@ print(y_flatmap.collect())
 x_filter=sc.parallelize([1,4,3,5,7,3,6,7,3,6,35,56,68,45,67,56])
 y_filter=x_filter.filter(lambda x:(x%2==0))
 print(x_filter.collect())
-print(y_filter.collect())'''
+print(y_filter.collect())
 
 #map_partition
 data=range(20)
@@ -30,7 +30,7 @@ def f(iterator):
     yield sum(iterator)
 y=x.mapPartitions(f)
 print(x.glom().collect())
-print(y.glom().collect())'''
+print(y.glom().collect())
 
 ##map_partition_with_index
 data=[1,23,5,34,45,34,4,242,4,42,242424,4242,4]
