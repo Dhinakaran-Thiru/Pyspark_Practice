@@ -31,5 +31,5 @@ dataframe.printSchema()
 dataframe.show()
 
 
-
+#dataframe created using structtype and struct_field
 
