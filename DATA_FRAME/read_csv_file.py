@@ -52,6 +52,7 @@ print(list12)'''
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType,StructField,IntegerType,StringType
 from pyspark.sql.functions import col
+
 spark=SparkSession.builder.appName("new creration").getOrCreate()
 
 data=[("dhinakaran",1,"science","good attitude",100),
@@ -69,11 +70,10 @@ dataframe.printSchema()
 
 data1=dataframe.collect()
 data2=dataframe.take(1)
-for i in data2:
-    print(i)
+print(data2)
 
 dataframe.printSchema()
-dataframe.count()
+print(dataframe.count())
 
 
 data4=dataframe.select("attitude")
@@ -84,3 +84,13 @@ data5.show()
 
 data6=dataframe.filter(col("attitude").contains('atti'))
 data6.show()
+
+data7=dataframe.select("name","attitude")
+data7.show()
+
+data8=dataframe.filter(col("attitude").startswith('b'))
+data8.show()
+
+data9=dataframe.select(col('roll no').alias("Roll Number"))
+data9.show()
+
